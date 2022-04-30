@@ -87,6 +87,7 @@ void ask(vector<Mugham> v)
     }
     size_t numberofElements = 4;
     vector<string> raw = v[randomMugham].get_shobes();
+    raw.erase(raw.begin() + randomIndis);
     raw.erase(raw.begin() + indexofRightAnswer);
     vector<string> lraw = {rightAnswer};
     std::experimental::fundamentals_v2::sample(raw.begin(), raw.end(), std::back_inserter(lraw), numberofElements, std::mt19937{std::random_device{}()});
@@ -101,37 +102,36 @@ void ask(vector<Mugham> v)
     cout << endl
          << "Your answer: ";
     cin >> answer;
-    switch(answer)
+    switch (answer)
     {
-        case 'a':
-            chosen = final_choices[0];
-            break;            
-        case 'b':
-            chosen = final_choices[1];
-            break;
-        case 'c':
-            chosen = final_choices[2];
-            break;
-        case 'd':
-            chosen = final_choices[3];
-            break;
-        case 'e':
-            chosen = final_choices[4];
-            break;
-        default:
-            cout<<"Wrong input"<<endl;
-            break;
+    case 'a':
+        chosen = final_choices[0];
+        break;
+    case 'b':
+        chosen = final_choices[1];
+        break;
+    case 'c':
+        chosen = final_choices[2];
+        break;
+    case 'd':
+        chosen = final_choices[3];
+        break;
+    case 'e':
+        chosen = final_choices[4];
+        break;
+    default:
+        cout << "Wrong input" << endl;
+        break;
     }
-    if(chosen == rightAnswer)
+    if (chosen == rightAnswer)
     {
-        cout<<"Correct"<<endl;
+        cout << "Correct" << endl;
     }
     else
     {
-        cout<<"False"<<endl;
+        cout << "False" << endl;
     }
 }
-
 
 int main()
 {
