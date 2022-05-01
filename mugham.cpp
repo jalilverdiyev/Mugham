@@ -39,7 +39,9 @@ public:
 
 vector<string> createChoices(vector<string> raw_choices)
 {
-    random_shuffle(raw_choices.begin(), raw_choices.end());
+    random_device rd;
+    mt19937 g(rd());
+    shuffle(raw_choices.begin(), raw_choices.end(), g);
     return raw_choices;
 }
 
@@ -121,15 +123,20 @@ void ask(vector<Mugham> v)
         break;
     default:
         cout << "Wrong input" << endl;
+        chosen = "Wrong";
         break;
     }
     if (chosen == rightAnswer)
     {
         cout << "Correct" << endl;
     }
+    else if (chosen == "Wrong")
+    {
+        system("exit");
+    }
     else
     {
-        cout << "False" << endl;
+        cout << "False!\nAnswer is " << rightAnswer << endl;
     }
 }
 
