@@ -148,8 +148,20 @@ int main()
     Mugham BayatiShiraz("Bayati-Shiraz", {"Berdash", "Maye", "Nishibi-ferez", "Bayati-Isfahan", "Zil bayati-shiraz", "Xaveran", "Uzzal", "Dilruba", "Ayaq"});
     Mugham ZabulSegah("Zabul-Segah", {"Berdash", "Maye-Zabul", "Manendi-Muxalif", "Orta-Segah", "Zil-Zabul", "Hisar", "Muxalif", "Zabula-Ayaq"});
     Mugham Humayun("Humayun", {"Berdash", "Maye", "Feili", "Molevi", "Shushter", "Tarkib", "Bidad", "Ayaq"});
+    Mugham Shushter("Shushter", {"Berdash", "Amiri", "Shushter", "Feili", "Molevi", "Tarkib", "Ayaq"});
 
-    ask({Rast, Chargah, Shur, BayatiShiraz, ZabulSegah, Humayun});
+    bool is_finished = false;
+    char exit;
+    cout<<"***Enter x to exit or c to continue***"<<endl;
+    while(!is_finished)
+    {
+        ask({Rast, Chargah, Shur, BayatiShiraz, ZabulSegah, Humayun,Shushter});
+        cin>>exit;
+        if(tolower(exit)=='x')
+        {
+            is_finished = true;
+        }
+    }
 
     return 0;
 }
